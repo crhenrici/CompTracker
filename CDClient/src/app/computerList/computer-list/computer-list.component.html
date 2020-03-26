@@ -1,0 +1,27 @@
+<div class="card my-5">
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Computer Name</th>
+                <th scope="col">User Name</th>
+                <th scope="col">User Surname</th>
+                <th scope="col">Windows Version</th>
+                <th scope="col">Last Update</th>
+                <th scope="col">Domain Migration</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let computer of computers">
+                    <td>{{ computer.computerName}}</td>
+                    <td> {{ computer.userName }}</td>
+                    <td> {{ computer.userSurname }}</td>
+                    <td> {{ computer.winVersion }}</td>
+                    <td> {{ computer.lastUpdate }}</td>
+                    <td> {{ computer.domainMigration }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
