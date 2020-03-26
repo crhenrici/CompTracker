@@ -11,7 +11,7 @@ export class ComputerService {
   private computerUrl: string;
 
   constructor(private http: HttpClient) {
-    this.computerUrl = 'http://localhost:8080/users';
+    this.computerUrl = 'http://localhost:8080/computers';
   }
 
   public findAll(): Observable<Computer[]>  {

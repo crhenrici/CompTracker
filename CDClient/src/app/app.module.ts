@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComputerListComponent } from './computerList/computer-list/computer-list.component';
+import { EditComponent } from './edit/edit/edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ComputerListComponent
+    ComputerListComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

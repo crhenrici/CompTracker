@@ -5,6 +5,7 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Computer Name</th>
+                <tH scope="col">Description</tH>
                 <th scope="col">User Name</th>
                 <th scope="col">User Surname</th>
                 <th scope="col">Windows Version</th>
@@ -15,6 +16,7 @@
             <tbody>
                 <tr *ngFor="let computer of computers">
                     <td>{{ computer.computerName}}</td>
+                    <td> {{ computer.description }}</td>
                     <td> {{ computer.userName }}</td>
                     <td> {{ computer.userSurname }}</td>
                     <td> {{ computer.winVersion }}</td>
