@@ -1,4 +1,7 @@
+import { NumberValueAccessor } from '@angular/forms';
+
 export class Computer {
+    id: number;
     computerName: string;
     description: string;
     userName: string;
