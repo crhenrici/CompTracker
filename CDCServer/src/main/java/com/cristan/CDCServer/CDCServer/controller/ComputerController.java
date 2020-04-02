@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "https://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ComputerController {
 
     ComputerRepository repository;
@@ -30,3 +30,4 @@ public class ComputerController {
         repository.save(computer);
     }
 }
+
