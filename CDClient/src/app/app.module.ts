@@ -8,6 +8,7 @@ import { EditComponent } from './edit/edit/edit.component';
 import { MatDialogModule, MatInputModule, MatFormFieldModule } from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     ComputerListComponent,
     EditComponent
   ],
+  entryComponents: [ EditComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     MatFormFieldModule,
     NoopAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

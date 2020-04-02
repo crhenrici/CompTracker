@@ -15,7 +15,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let computer of computers">
-                    <td><button class="btn btn-primary">Edit</button></td>
+                    <td><button class="btn btn-primary" (click)="openEdit('EDIT')">Edit</button></td>
                     <td>{{ computer.computerName}}</td>
                     <td> {{ computer.description }}</td>
                     <td> {{ computer.userName }}</td>

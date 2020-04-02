@@ -1,33 +1,61 @@
-<div class="card my-5">
-    <form class="example-form" onsubmit="">
-        <mat-form-field class="example-full-width">
-            <mat-label>Computer Name</mat-label>
-            <input matInput placeholder="Enter Computer Name" value="computerName">
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-            <mat-label>Description</mat-label>
-            <textarea matInput placeholder="Enter description" name="description" id="description" cols="30" rows="10"></textarea>
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-            <mat-label>User Name</mat-label>
-            <input matInput placeholder="Enter user name" value="userName">
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-            <mat-label>User Surname</mat-label>
-            <input matInput placeholder="Enter user surname" value="userSurname">
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-            <mat-label>Windows Version</mat-label>
-            <input matInput placeholder="Enter Windwos version" value="winVersion">
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-            <mat-label>Last update</mat-label>
-            <input matInput placeholder="When was the last update?" value="lastUpdate">
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-            <mat-label>Domain Migration</mat-label>
-            <input matInput placeholder="Is this computer already migrated?" value="domainMigration">
-        </mat-form-field>
-        <button mat-button class="btn btn-primary">text</button>
-    </form>
+<div class="container">
+    <div class="row">
+        <form class="form-group" [formGroup]="computerForm" onsubmit="save()">
+            <div class="row">
+                <div class="col">
+                <mat-form-field>
+                    <mat-label>Computer Name</mat-label>
+                    <input matInput placeholder="Enter Computer Name" formControlName="computerName">
+                </mat-form-field>
+                </div>
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>Description</mat-label>
+                        <textarea matInput placeholder="Enter description" name="description" id="description" formControlName="description" cols="8" rows="1"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>User Name</mat-label>
+                        <input matInput placeholder="Enter user name" formControlName="userName">
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>User Surname</mat-label>
+                        <input matInput placeholder="Enter user surname" formControlName="userSurname">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>Windows Version</mat-label>
+                        <input matInput placeholder="Enter Windwos version" formControlName="winVer">
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>Last update</mat-label>
+                        <input matInput placeholder="When was the last update?" formControlName="lastUpdate">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>Domain Migration</mat-label>
+                        <input matInput placeholder="Is this computer already migrated?" formControlName="domainMigrated">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row button">
+                <div class="col">
+                    <button mat-button type="submit" [mat-dialog-close]="{computer: computerForm.value, submitted: true}" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
