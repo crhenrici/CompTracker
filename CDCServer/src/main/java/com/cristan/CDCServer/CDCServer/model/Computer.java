@@ -24,6 +24,16 @@ public class Computer {
 
     }
 
+    public Computer(long id, String computerName, String desc, String userName, String userSurname, String winVersion, Date lastUpdate, Boolean domainMigration) {
+        this.computerName = computerName;
+        this.description = desc;
+        this.userName = userName;
+        this.userSurname = userSurname;
+        this.winVersion = winVersion;
+        this.lastUpdate = lastUpdate;
+        this.domainMigration = domainMigration;
+    }
+
     public long getId() {
         return id;
     }

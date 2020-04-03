@@ -3,10 +3,7 @@ package com.cristan.CDCServer.CDCServer.controller;
 
 import com.cristan.CDCServer.CDCServer.db.ComputerRepository;
 import com.cristan.CDCServer.CDCServer.model.Computer;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,8 +23,9 @@ public class ComputerController {
     }
 
     @PostMapping("/computers")
-    public void saveComputer(Computer computer) {
+    public void saveComputer(@RequestBody Computer computer) {
         repository.save(computer);
+        System.out.println("Computer: " +  computer);
     }
 }
 
