@@ -9,7 +9,7 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-  computerForm = new FormGroup( {
+  computerForm = new FormGroup({
     computerName: new FormControl(''),
     description: new FormControl(''),
     userName: new FormControl(''),

@@ -26,13 +26,14 @@ export class ComputerListComponent implements OnInit {
       if (result.submitted) {
 
         if (action === 'EDIT') {
-          this.service.updateData(computer.id, computer).subscribe(() => {
+          this.service.updateData(result.id, result).subscribe(() => {
             this.loadTable();
           });
         }
 
         if (action === 'NEW') {
-          this.service.save(computer).subscribe(() => {
+          this.service.save(result.computer).subscribe(() => {
+            console.log('Result: ', result.computer);
             this.loadTable();
           });
         }
