@@ -33,7 +33,6 @@ export class ComputerListComponent implements OnInit {
 
         if (action === 'NEW') {
           this.service.save(result.computer).subscribe(() => {
-            console.log('Result: ', result.computer);
             this.loadTable();
           });
         }

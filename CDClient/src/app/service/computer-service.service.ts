@@ -23,8 +23,6 @@ export class ComputerService {
  }
 
  public save(computer: Computer) {
-   console.log('Computer saved: ', computer);
-   console.log('URL: ', this.computerUrl);
    return this.http.post<Computer>(this.computerUrl, computer, httpOptions);
  }
 
