@@ -4,6 +4,7 @@
             <thead class="thead-dark">
             <tr>
                 <th scope="col">Actions</th>
+                <th scope="col">Id</th>
                 <th scope="col">Computer Name</th>
                 <tH scope="col">Description</tH>
                 <th scope="col">User Name</th>
@@ -15,7 +16,8 @@
             </thead>
             <tbody>
                 <tr *ngFor="let computer of computers">
-                    <td><button class="btn btn-primary" (click)="openEdit('EDIT')">Edit</button></td>
+                    <td><button class="btn btn-primary" (click)="openEdit('EDIT', computer)">Edit</button></td>
+                    <td>{{ computer.id}}</td>
                     <td>{{ computer.computerName}}</td>
                     <td> {{ computer.description }}</td>
                     <td> {{ computer.userName }}</td>

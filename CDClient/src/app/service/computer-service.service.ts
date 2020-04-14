@@ -19,15 +19,19 @@ export class ComputerService {
   }
 
   public findAll(): Observable<Computer[]>  {
-   return this.http.get<Computer[]>(this.computerUrl, httpOptions);
+   const url = `${this.computerUrl}/fetchAll`;
+   return this.http.get<Computer[]>(url, httpOptions);
  }
 
- public save(computer: Computer) {
-   return this.http.post<Computer>(this.computerUrl, computer, httpOptions);
+ public save(computer: Computer): Observable<Computer> {
+   const url = `${this.computerUrl}/save`;
+   return this.http.post<Computer>(url, computer, httpOptions);
  }
 
- public updateData(id: number, computer: Computer) {
-   const url = `${this.computerUrl}/${id}`;
+ public updateData(computer: Computer) {
+   const id = computer.id;
+   const url = `${this.computerUrl}/update`;
+   console.log('Id: ', id);
    return this.http.put<Computer>(url, computer, httpOptions);
  }
 

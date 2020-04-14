@@ -19,30 +19,28 @@ export class ComputerListComponent implements OnInit {
     const dialogRef = this.dialog.open(EditComponent, {
       height: '500px',
       width: '500px',
-      data: {computer}
+      disableClose: true,
+      data: {dataKey: computer, act: action }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result.submitted) {
 
         if (action === 'EDIT') {
-          this.service.updateData(result.id, result).subscribe(() => {
-            this.loadTable();
-          });
+          console.log('DataKey: ' + result.dataKey.id);
+          // console.log('Computer edit id:  ', result.computer.id);
+          this.service.updateData(result.dataKey).subscribe(data => {
+            const index = this.computers.findIndex(computer => computer.id === data.id);
+            this.computers[index] = data;
+         });
         }
 
         if (action === 'NEW') {
-          this.service.save(result.computer).subscribe(() => {
-            this.loadTable();
+          this.service.save(result.dataKey).subscribe(data => {
+            this.computers.push(data);
           });
         }
       }
-    });
-  }
-
-  loadTable() {
-    this.service.findAll().subscribe(entries => {
-      this.computers = entries;
     });
   }
 

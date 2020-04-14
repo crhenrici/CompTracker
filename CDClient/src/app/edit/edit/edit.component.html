@@ -50,10 +50,17 @@
                         <input matInput placeholder="Is this computer already migrated?" formControlName="domainMigrated">
                     </mat-form-field>
                 </div>
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>Id</mat-label>
+                        <input matInput formControlName="id" placeholder="id">
+                    </mat-form-field>
+                </div>
             </div>
             <div class="row button">
                 <div class="col">
-                    <button mat-button type="submit" [mat-dialog-close]="{computer: computerForm.value, submitted: true}" class="btn btn-primary">Save</button>
+                    <button mat-button type="submit" [mat-dialog-close]="{dataKey: computerForm.value, submitted: true}" class="btn btn-primary">Save</button>
+                    <button mat-button type="submit" [mat-dialog-close]="{submitted: false}" class="btn btn-danger">Cancel</button>
                 </div>
             </div>
         </form>
