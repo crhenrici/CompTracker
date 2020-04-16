@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { ComputerService } from 'src/app/computer-service.service';
+import { ComputerService } from 'src/app/computer.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Computer } from 'src/app/model/computer';

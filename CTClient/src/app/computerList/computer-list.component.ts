@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Computer } from 'src/app/model/computer';
-import { ComputerService } from 'src/app/computer-service.service';
+import { ComputerService } from 'src/app/computer.service';
 import { MatDialog } from '@angular/material';
 import { EditComponent } from 'src/app/edit/edit.component';
 

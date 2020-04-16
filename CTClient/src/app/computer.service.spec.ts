@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ComputerServiceService } from './computer-service.service';
+import { ComputerService } from './computer.service';
 
 describe('ComputerServiceService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: ComputerServiceService = TestBed.get(ComputerServiceService);
+    const service: ComputerService = TestBed.get(ComputerService);
     expect(service).toBeTruthy();
   });
 });
