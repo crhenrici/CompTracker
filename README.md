@@ -1,6 +1,6 @@
-## CompTracker
+# CompTracker
 
-The application maintains the computers of the company in a database, where the frontend is developed with Angular and
+The application maintains the computers of the company in a database. Frontend is developed with Angular and
 backend with Java Spring Boot. The Implementation of the Database is
 still open. Communication from frontend to backend is based on REST.
 This right now this is a small prototype, with fixes and improvements
@@ -11,11 +11,11 @@ employer.
 
 ## Structure
 
-# CTServer
+### CTServer
 
 Backend is implements a REST Server with Java Spring Boot.
 
-# CTClient
+### CTClient
 
 Frontend is made with Angular.
 
