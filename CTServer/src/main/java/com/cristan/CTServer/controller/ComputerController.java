@@ -1,8 +1,8 @@
-package com.cristan.CDCServer.CDCServer.controller;
+package com.cristan.CTServer.controller;
 
 
-import com.cristan.CDCServer.CDCServer.db.ComputerRepository;
-import com.cristan.CDCServer.CDCServer.model.Computer;
+import com.cristan.CTServer.db.ComputerRepository;
+import com.cristan.CTServer.model.Computer;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

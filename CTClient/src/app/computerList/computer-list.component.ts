@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Computer } from 'src/app/model/computer';
-import { ComputerService } from 'src/app/service/computer-service.service';
+import { ComputerService } from 'src/app/computer-service.service';
 import { MatDialog } from '@angular/material';
-import { EditComponent } from 'src/app/edit/edit/edit.component';
+import { EditComponent } from 'src/app/edit/edit.component';
 
 @Component({
   selector: 'app-computer-list',

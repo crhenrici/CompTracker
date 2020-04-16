@@ -1,6 +1,6 @@
-package com.cristan.CDCServer.CDCServer.db;
+package com.cristan.CTServer.db;
 
-import com.cristan.CDCServer.CDCServer.model.Computer;
+import com.cristan.CTServer.model.Computer;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
