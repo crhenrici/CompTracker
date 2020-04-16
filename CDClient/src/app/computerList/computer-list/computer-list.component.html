@@ -23,8 +23,8 @@
                     <td> {{ computer.userName }}</td>
                     <td> {{ computer.userSurname }}</td>
                     <td> {{ computer.winVersion }}</td>
-                    <td> {{ computer.lastUpdate | date: 'shortdate'}}</td>
-                    <td> {{ computer.domainMigration }}</td>
+                    <td> {{ computer.lastUpdate | date: 'dd/MM/yyyy'}}</td>
+                    <td> {{ computer.domainMigration?'Yes':'No' }}</td>
                 </tr>
             </tbody>
         </table>

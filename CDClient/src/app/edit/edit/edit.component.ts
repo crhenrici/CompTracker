@@ -15,9 +15,9 @@ export class EditComponent implements OnInit {
     description: new FormControl(''),
     userName: new FormControl(''),
     userSurname: new FormControl(''),
-    winVer: new FormControl(''),
+    winVersion: new FormControl(''),
     lastUpdate: new FormControl(''),
-    domainMigrated: new FormControl('')
+    domainMigration: new FormControl('')
   });
   computer: Computer;
 
@@ -26,13 +26,6 @@ export class EditComponent implements OnInit {
                 if (data.act === 'EDIT') {
                   console.log('data.dataKey: ' + data.dataKey.computerName);
                   this.computer = data.dataKey;
-                  // this.computer.computerName = data.dataKey.computerName;
-                  // this.computer.description = data.dataKeydescription;
-                  // this.computer.domainMigration = data.domainMigration;
-                  // this.computer.lastUpdate = data.lastUpdate;
-                  // this.computer.userName = data.userName;
-                  // this.computer.userSurname = data.userSurname;
-                  // this.computer.winVersion = data.winVersion;
                 }
     }
 
@@ -46,9 +39,9 @@ export class EditComponent implements OnInit {
         description: [this.data.dataKey.description, []],
         userName: [this.data.dataKey.userName, []],
         userSurname: [this.data.dataKey.userSurname, []],
-        winVer: [this.data.dataKey.winVersion, []],
+        winVersion: [this.data.dataKey.winVersion, []],
         lastUpdate: [this.data.dataKey.lastUpdate, []],
-        domainMigrated: [this.data.dataKey.domainMigration, []]
+        domainMigration: [this.data.dataKey.domainMigration, []]
       });
     }
   }

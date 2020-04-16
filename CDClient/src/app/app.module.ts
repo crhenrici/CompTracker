@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComputerListComponent } from './computerList/computer-list/computer-list.component';
 import { EditComponent } from './edit/edit/edit.component';
-import { MatDialogModule, MatInputModule, MatFormFieldModule } from '@angular/material';
+import { MatDialogModule, MatInputModule, MatFormFieldModule, MatRadioModule } from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     NoopAnimationsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

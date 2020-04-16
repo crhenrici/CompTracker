@@ -37,6 +37,8 @@ export class ComputerListComponent implements OnInit {
 
         if (action === 'NEW') {
           this.service.save(result.dataKey).subscribe(data => {
+            console.log('Computer Windows version: ' + result.dataKey.winVersion);
+            console.log('Computer Windows version data returned: ' + data.winVersion);
             this.computers.push(data);
           });
         }

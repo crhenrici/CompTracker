@@ -33,22 +33,27 @@
                 <div class="col">
                     <mat-form-field>
                         <mat-label>Windows Version</mat-label>
-                        <input matInput placeholder="Enter Windwos version" formControlName="winVer">
+                        <input matInput placeholder="Enter Windows version" formControlName="winVersion">
                     </mat-form-field>
                 </div>
                 <div class="col">
                     <mat-form-field>
                         <mat-label>Last update</mat-label>
-                        <input matInput placeholder="When was the last update?" formControlName="lastUpdate">
+                        <input matInput [matDatepicker]="picker" placeholder="When was the last update?" formControlName="lastUpdate">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <mat-form-field>
-                        <mat-label>Domain Migration</mat-label>
-                        <input matInput placeholder="Is this computer already migrated?" formControlName="domainMigrated">
-                    </mat-form-field>
+                    <mat-label>Domain Migration</mat-label>
+                    <mat-radio-group aria-label="Domain Migration" formControlName="domainMigration">
+                        <div class="col">
+                        <mat-radio-button value="true">Yes</mat-radio-button>
+                        <mat-radio-button value="false">No</mat-radio-button>
+                        </div>
+                    </mat-radio-group>
                 </div>
                 <div class="col">
                     <mat-form-field>
