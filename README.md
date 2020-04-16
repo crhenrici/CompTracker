@@ -12,7 +12,7 @@ employer.
 ## TODO
 
 - [ ] Implement database (probably Postgres, but still to be decided)
-- [ ] Implement date picker and radio buttons for form
+- [x] Implement date picker and radio buttons for form
 - [ ] Implement search option for table
 - [ ] Implement sort option for table
 - [ ] Eventually change form
