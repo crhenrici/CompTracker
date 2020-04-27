@@ -1,6 +1,6 @@
-package com.cristan.CTServer.db;
+package com.cristian.CTServer.db;
 
-import com.cristan.CTServer.model.Computer;
+import com.cristian.CTServer.model.Computer;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

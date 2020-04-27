@@ -1,8 +1,8 @@
-package com.cristan.CTServer.controller;
+package com.cristian.CTServer.controller;
 
 
-import com.cristan.CTServer.db.ComputerRepository;
-import com.cristan.CTServer.model.Computer;
+import com.cristian.CTServer.db.ComputerRepository;
+import com.cristian.CTServer.model.Computer;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
