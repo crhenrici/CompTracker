@@ -1,5 +1,9 @@
 package com.cristian.CTServer.model;
 
+import com.google.common.base.Preconditions;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,15 +13,31 @@ import java.util.Date;
 @Entity
 public class Computer {
 
+    @Getter
+    @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @Getter
+    @Setter
     private String computerName;
+    @Getter
+    @Setter
     private String description;
+    @Getter
+    @Setter
     private String userName;
+    @Getter
+    @Setter
     private String userSurname;
+    @Getter
+    @Setter
     private String winVersion;
+    @Getter
+    @Setter
     private Date lastUpdate;
+    @Getter
+    @Setter
     private Boolean domainMigration;
 
     public Computer() {
@@ -25,80 +45,15 @@ public class Computer {
     }
 
     public Computer(long id, String computerName, String desc, String userName, String userSurname, String winVersion, Date lastUpdate, Boolean domainMigration) {
-        this.computerName = computerName;
+        this.computerName = Preconditions.checkNotNull(computerName, "computerName is not set");
         this.description = desc;
-        this.userName = userName;
-        this.userSurname = userSurname;
+        this.userName = Preconditions.checkNotNull(userName, "userName is not set");
+        this.userSurname = Preconditions.checkNotNull(userSurname, "userSurname is not set");
         this.winVersion = winVersion;
         this.lastUpdate = lastUpdate;
         this.domainMigration = domainMigration;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getComputerName() {
-        return computerName;
-    }
-
-    public void setComputerName(String computerName) {
-        this.computerName = computerName;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getUserSurname() {
-        return userSurname;
-    }
-
-    public void setUserSurname(String userSurname) {
-        this.userSurname = userSurname;
-    }
-
-    public String getWinVersion() {
-        return winVersion;
-    }
-
-    public void setWinVersion(String winVersion) {
-        this.winVersion = winVersion;
-    }
-
-    public Date getLastUpdate() {
-        return lastUpdate;
-    }
-
-    public void setLastUpdate(Date lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
-
-    public Boolean getDomainMigration() {
-        return domainMigration;
-    }
-
-    public void setDomainMigration(Boolean domainMigration) {
-        this.domainMigration = domainMigration;
-    }
-
-    @Override
     public String toString() {
         return "Computer{" +
                 "id=" + id +

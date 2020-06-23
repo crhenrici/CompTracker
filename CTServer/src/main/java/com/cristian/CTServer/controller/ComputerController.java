@@ -3,6 +3,7 @@ package com.cristian.CTServer.controller;
 
 import com.cristian.CTServer.db.ComputerRepository;
 import com.cristian.CTServer.model.Computer;
+import com.google.common.base.Preconditions;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class ComputerController {
     ComputerRepository repository;
 
     public ComputerController(ComputerRepository repository) {
-        this.repository = repository;
+        this.repository = Preconditions.checkNotNull(repository, "repository is null");
     }
 
     @GetMapping("/computers/fetchAll")
@@ -30,7 +31,7 @@ public class ComputerController {
     @ResponseBody
     public Computer saveComputer(@RequestBody Computer computer) {
         System.out.println("Computer before insert: " +  computer.toString());
-        Computer result =repository.save(computer);
+        Computer result = Preconditions.checkNotNull(repository.save(computer), "computer is not defined");
         System.out.println("Computer after: " +  result.toString());
         return result;
     }
@@ -38,6 +39,7 @@ public class ComputerController {
     @PutMapping("/computers/update")
     @ResponseBody
     public Optional<Computer> updateComputer(@RequestBody Computer newComputer) {
+        Preconditions.checkNotNull(newComputer, "no computer to update");
         System.out.println("Computer updateComputer: " +  newComputer.toString());
         long id = newComputer.getId();
         return repository.findById(id).map(
