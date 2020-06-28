@@ -3,6 +3,7 @@ import { Computer } from 'src/app/model/computer';
 import { ComputerService } from 'src/app/computer.service';
 import { MatDialog } from '@angular/material';
 import { EditComponent } from 'src/app/edit/edit.component';
+import { Sort } from '@angular/material';
 
 @Component({
   selector: 'app-computer-list',
@@ -12,15 +13,16 @@ import { EditComponent } from 'src/app/edit/edit.component';
 export class ComputerListComponent implements OnInit {
 
   computers: Computer[];
+  searchString: string;
 
-  constructor(private service: ComputerService, public dialog: MatDialog ) { }
+  constructor(private service: ComputerService, public dialog: MatDialog) { }
 
   openEdit(action: string, computer?: Computer) {
     const dialogRef = this.dialog.open(EditComponent, {
       height: '500px',
       width: '500px',
       disableClose: true,
-      data: {dataKey: computer, act: action }
+      data: { dataKey: computer, act: action }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -32,7 +34,7 @@ export class ComputerListComponent implements OnInit {
           this.service.updateData(result.dataKey).subscribe(data => {
             const index = this.computers.findIndex(computer => computer.id === data.id);
             this.computers[index] = data;
-         });
+          });
         }
 
         if (action === 'NEW') {
@@ -44,6 +46,40 @@ export class ComputerListComponent implements OnInit {
         }
       }
     });
+  }
+
+  sortData(sort: Sort) {
+    const data = this.computers.slice();
+    if (!sort.active || sort.direction === '') {
+      this.computers = data;
+      return;
+    }
+
+    this.computers = data.sort((a, b) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'id': return this.compare(a.id, b.id, isAsc);
+        case 'computerName': return this.compare(a.computerName, b.computerName, isAsc);
+        case 'userName': return this.compare(a.userName, b.userName, isAsc);
+        case 'userSurname': return this.compare(a.userSurname, b.userSurname, isAsc);
+        case 'description': return this.compare(a.description, b.description, isAsc);
+        case 'winVersion': return this.compare(a.winVersion, b.winVersion, isAsc);
+        case 'lastUpdate': return this.compare(a.lastUpdate, b.lastUpdate, isAsc);
+        case 'domainMigration': return this.compare(a.domainMigration, b.domainMigration, isAsc);
+        default: return 0;
+      }
+    });
+  }
+
+  compare(a: number | string | Date | boolean, b: number | string | Date | boolean, isAsc: boolean) {
+    return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+  }
+
+  delete(computer: Computer) {
+    this.service.deleteComputer(computer.id).subscribe(data => {
+      const index = this.computers.findIndex(computer => computer.id === data.id);
+    });
+    console.log("Computer id:  ", computer.id);
   }
 
   ngOnInit() {

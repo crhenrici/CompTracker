@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Computer } from './model/computer';
+import { tap, catchError } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -35,9 +36,10 @@ export class ComputerService {
    return this.http.put<Computer>(url, computer, httpOptions);
  }
 
- public deleteComputer(id: number, computer: Computer) {
-  const url = `${this.computerUrl}/${id}`;
+ public deleteComputer(id: number) {
+  const url = `${this.computerUrl}/delete/${id}`;
+  console.log('Id delete: ', id);
+  console.log('Url: ', url);
   return this.http.delete<Computer>(url, httpOptions);
  }
-
 }
