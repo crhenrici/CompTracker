@@ -76,8 +76,8 @@ export class ComputerListComponent implements OnInit {
   }
 
   delete(computer: Computer) {
-    this.service.deleteComputer(computer.id).subscribe(data => {
-      const index = this.computers.findIndex(computer => computer.id === data.id);
+    this.service.deleteComputer(computer.id).subscribe(() => {
+      this.computers = this.computers.filter(item => item !== computer); 
     });
     console.log("Computer id:  ", computer.id);
   }
