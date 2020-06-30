@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Computer } from 'src/app/model/computer';
 import { ComputerService } from 'src/app/computer.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatTableDataSource } from '@angular/material';
 import { EditComponent } from 'src/app/edit/edit.component';
 import { Sort } from '@angular/material';
 
@@ -13,6 +13,8 @@ import { Sort } from '@angular/material';
 export class ComputerListComponent implements OnInit {
 
   computers: Computer[];
+  dataSource = new MatTableDataSource(this.computers);
+  displayedColumns = ['id', 'computerName', 'description', 'userName', 'userSurname', 'winVersion', 'lastUpdate', 'domainMigration'];
   searchString: string;
 
   constructor(private service: ComputerService, public dialog: MatDialog) { }
@@ -77,7 +79,7 @@ export class ComputerListComponent implements OnInit {
 
   delete(computer: Computer) {
     this.service.deleteComputer(computer.id).subscribe(() => {
-      this.computers = this.computers.filter(item => item !== computer); 
+      this.computers = this.computers.filter(item => item !== computer);
     });
     console.log("Computer id:  ", computer.id);
   }
