@@ -1,6 +1,42 @@
 <div class="card my-5">
     <div class="card-body">
-        <mat-form-field>
+      <mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef>Id</mat-header-cell>
+          <mat-cell *matCellDef="let computer"> {{ computer.id }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="computerName">
+          <mat-header-cell *matHeaderCellDef>Computer Name</mat-header-cell>
+          <mat-cell *matCellDef="let computer"> {{ computer.computerName }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="description">
+          <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+          <mat-cell *matCellDef="let computer"> {{ computer.description }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="userName">
+          <mat-header-cell *matHeaderCellDef>User Name</mat-header-cell>
+          <mat-cell *matCellDef="let computer"> {{ computer.userName }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="userSurname">
+          <mat-header-cell *matHeaderCellDef>User Surname</mat-header-cell>
+          <mat-cell *matCellDef="let computer"> {{ computer.userSurname }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="winVersion">
+          <mat-header-cell *matHeaderCellDef>Windows Version</mat-header-cell>
+          <mat-cell *matCellDef="let computer"> {{ computer.winVersion }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="lastUpdate">
+          <mat-header-cell *matHeaderCellDef>Last Update</mat-header-cell>
+          <mat-cell *matCellDef="let computer"> {{ computer.lastUpdate }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="domainMigration">
+          <mat-header-cell *matHeaderCellDef>Domain Migration</mat-header-cell>
+          <mat-cell *matCellDef="let computer"> {{ computer.domainMigration }}</mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+      </mat-table>
+        <!-- <mat-form-field>
             <input matInput placeholder="Search Computer name" [(ngModel)]="searchString">
         </mat-form-field>
         <table matSort (matSortChange)="sortData($event)" class="table table-bordered table-stdiped">
@@ -33,7 +69,7 @@
                     <td> {{ computer.domainMigration?'Yes':'No' }}</td>
                 </tr>
             </tbody>
-        </table>
+        </table> -->
         <button mat-stroked-button (click)="openEdit('NEW')">Add Computer</button>
     </div>
 </div>
