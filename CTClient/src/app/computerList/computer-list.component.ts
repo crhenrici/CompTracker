@@ -13,8 +13,8 @@ import { Sort } from '@angular/material';
 export class ComputerListComponent implements OnInit {
 
   computers: Computer[];
-  dataSource = new MatTableDataSource(this.computers);
-  displayedColumns = ['id', 'computerName', 'description', 'userName', 'userSurname', 'winVersion', 'lastUpdate', 'domainMigration'];
+  dataSource:MatTableDataSource<Computer>;
+  displayedColumns = ['action', 'id', 'computerName', 'description', 'userName', 'userSurname', 'winVersion', 'lastUpdate', 'domainMigration'];
   searchString: string;
 
   constructor(private service: ComputerService, public dialog: MatDialog) { }
@@ -81,12 +81,13 @@ export class ComputerListComponent implements OnInit {
     this.service.deleteComputer(computer.id).subscribe(() => {
       this.computers = this.computers.filter(item => item !== computer);
     });
-    console.log("Computer id:  ", computer.id);
+    console.log('Computer id:  ', computer.id);
   }
 
   ngOnInit() {
     this.service.findAll().subscribe(data => {
       this.computers = data;
+      this.dataSource = new MatTableDataSource(this.computers);
     });
   }
 

@@ -1,6 +1,13 @@
 <div class="card my-5">
     <div class="card-body">
       <mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let computer">
+                <button mat-stroked-button class="btn btn-primary" (click)="openEdit('EDIT', computer)">Edit</button>
+                <button mat-stroked-button color="warn" class="btn btn-danger" (click)="delete(computer)">Delete</button>
+            </mat-cell>
+        </ng-container>
         <ng-container matColumnDef="id">
           <mat-header-cell *matHeaderCellDef>Id</mat-header-cell>
           <mat-cell *matCellDef="let computer"> {{ computer.id }}</mat-cell>
