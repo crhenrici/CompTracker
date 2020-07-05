@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComputerListComponent } from './computerList/computer-list.component';
 import { EditComponent } from './edit/edit.component';
-import { MatDialogModule, MatInputModule, MatFormFieldModule, MatRadioModule, MatTableModule, MatSortModule } from '@angular/material';
+import { MatDialogModule, MatInputModule, MatFormFieldModule, MatRadioModule, MatTableModule, MatSortModule,
+   MatButtonModule } from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -26,6 +27,7 @@ import { FilterPipe } from './Pipe/filter.pipe';
     AppRoutingModule,
     MatDialogModule,
     MatInputModule,
+    MatButtonModule,
     MatFormFieldModule,
     NoopAnimationsModule,
     HttpClientModule,

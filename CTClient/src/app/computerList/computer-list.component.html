@@ -20,8 +20,8 @@
             <tbody>
                 <tr *ngFor="let computer of computers | filter : 'computerName' : searchString; let i = index">
                     <td>
-                        <button class="btn btn-primary" (click)="openEdit('EDIT', computer)">Edit</button>
-                        <button class="btn btn-danger" (click)="delete(computer)">Delete</button>
+                        <button mat-stroked-button class="btn btn-primary" (click)="openEdit('EDIT', computer)">Edit</button>
+                        <button mat-stroked-button color="warn" class="btn btn-danger" (click)="delete(computer)">Delete</button>
                     </td>
                     <td>{{ computer.id}}</td>
                     <td>{{ computer.computerName}}</td>
@@ -34,6 +34,6 @@
                 </tr>
             </tbody>
         </table>
-        <button class="btn btn-primary" (click)="openEdit('NEW')">Add Computer</button>
+        <button mat-stroked-button (click)="openEdit('NEW')">Add Computer</button>
     </div>
 </div>
