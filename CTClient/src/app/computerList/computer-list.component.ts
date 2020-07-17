@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Computer } from 'src/app/model/computer';
-import { ComputerService } from 'src/app/computer.service';
 import { MatDialog, MatTableDataSource } from '@angular/material';
 import { EditComponent } from 'src/app/edit/edit.component';
 import { Sort } from '@angular/material';
+import { ComputerFacade } from '../abstraction/computerFacade';
 
 @Component({
   selector: 'app-computer-list',
@@ -13,11 +13,12 @@ import { Sort } from '@angular/material';
 export class ComputerListComponent implements OnInit {
 
   computers: Computer[];
-  dataSource:MatTableDataSource<Computer>;
-  displayedColumns = ['action', 'id', 'computerName', 'description', 'userName', 'userSurname', 'winVersion', 'lastUpdate', 'domainMigration'];
+  dataSource: MatTableDataSource<Computer>;
+  displayedColumns = ['action', 'id', 'computerName', 'description', 'userName', 'userSurname',
+    'winVersion', 'lastUpdate', 'domainMigration'];
   searchString: string;
 
-  constructor(private service: ComputerService, public dialog: MatDialog) { }
+  constructor(private computerFacade: ComputerFacade, public dialog: MatDialog) { }
 
   openEdit(action: string, computer?: Computer) {
     const dialogRef = this.dialog.open(EditComponent, {
@@ -33,14 +34,14 @@ export class ComputerListComponent implements OnInit {
         if (action === 'EDIT') {
           console.log('DataKey: ' + result.dataKey.id);
           // console.log('Computer edit id:  ', result.computer.id);
-          this.service.updateData(result.dataKey).subscribe(data => {
+          this.computerFacade.updateComputer(result.dataKey).subscribe(data => {
             const index = this.computers.findIndex(computer => computer.id === data.id);
             this.computers[index] = data;
           });
         }
 
         if (action === 'NEW') {
-          this.service.save(result.dataKey).subscribe(data => {
+          this.computerFacade.saveComputer(result.dataKey).subscribe(data => {
             console.log('Computer Windows version: ' + result.dataKey.winVersion);
             console.log('Computer Windows version data returned: ' + data.winVersion);
             this.computers.push(data);
@@ -78,14 +79,14 @@ export class ComputerListComponent implements OnInit {
   }
 
   delete(computer: Computer) {
-    this.service.deleteComputer(computer.id).subscribe(() => {
+    this.computerFacade.deleteComputer(computer.id).subscribe(() => {
       this.computers = this.computers.filter(item => item !== computer);
     });
     console.log('Computer id:  ', computer.id);
   }
 
   ngOnInit() {
-    this.service.findAll().subscribe(data => {
+    this.computerFacade.getAllComputers().subscribe(data => {
       this.computers = data;
       this.dataSource = new MatTableDataSource(this.computers);
     });
