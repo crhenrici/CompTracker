@@ -34,7 +34,7 @@
         </ng-container>
         <ng-container matColumnDef="lastUpdate">
           <mat-header-cell *matHeaderCellDef>Last Update</mat-header-cell>
-          <mat-cell *matCellDef="let computer"> {{ computer.lastUpdate }}</mat-cell>
+          <mat-cell *matCellDef="let computer"> {{ computer.lastUpdate | date: "dd/MM/yyyy" }}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="domainMigration">
           <mat-header-cell *matHeaderCellDef>Domain Migration</mat-header-cell>
