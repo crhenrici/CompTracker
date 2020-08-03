@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "CDClient"
+  "defaultProject": "CDClient",
+  "cli": {
+    "analytics": "6bf818a8-ca32-428d-8f8f-28d17aed452a"
+  }
 }
