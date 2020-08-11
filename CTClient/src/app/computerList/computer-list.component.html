@@ -1,6 +1,6 @@
 <div class="card my-5">
     <div class="card-body">
-      <mat-table [dataSource]="dataSource">
+      <mat-table [dataSource]="dataSource" matSort>
         <ng-container matColumnDef="action">
             <mat-header-cell *matHeaderCellDef></mat-header-cell>
             <mat-cell *matCellDef="let computer">
@@ -9,74 +9,40 @@
             </mat-cell>
         </ng-container>
         <ng-container matColumnDef="id">
-          <mat-header-cell *matHeaderCellDef>Id</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
           <mat-cell *matCellDef="let computer"> {{ computer.id }}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="computerName">
-          <mat-header-cell *matHeaderCellDef>Computer Name</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Computer Name</mat-header-cell>
           <mat-cell *matCellDef="let computer"> {{ computer.computerName }}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="description">
-          <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Description</mat-header-cell>
           <mat-cell *matCellDef="let computer"> {{ computer.description }}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="userName">
-          <mat-header-cell *matHeaderCellDef>User Name</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header>User Name</mat-header-cell>
           <mat-cell *matCellDef="let computer"> {{ computer.userName }}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="userSurname">
-          <mat-header-cell *matHeaderCellDef>User Surname</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header>User Surname</mat-header-cell>
           <mat-cell *matCellDef="let computer"> {{ computer.userSurname }}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="winVersion">
-          <mat-header-cell *matHeaderCellDef>Windows Version</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Windows Version</mat-header-cell>
           <mat-cell *matCellDef="let computer"> {{ computer.winVersion }}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="lastUpdate">
-          <mat-header-cell *matHeaderCellDef>Last Update</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Last Update</mat-header-cell>
           <mat-cell *matCellDef="let computer"> {{ computer.lastUpdate | date: "dd/MM/yyyy" }}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="domainMigration">
-          <mat-header-cell *matHeaderCellDef>Domain Migration</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Domain Migration</mat-header-cell>
           <mat-cell *matCellDef="let computer"> {{ computer.domainMigration }}</mat-cell>
         </ng-container>
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
       </mat-table>
-        <!-- <mat-form-field>
-            <input matInput placeholder="Search Computer name" [(ngModel)]="searchString">
-        </mat-form-field>
-        <table matSort (matSortChange)="sortData($event)" class="table table-bordered table-stdiped">
-            <thead class="thead-dark">
-            <tr>
-                <th scope="col">Actions</th>
-                <th mat-sort-header="id" scope="col">Id</th>
-                <th mat-sort-header="computerName" scope="col">Computer Name</th>
-                <th mat-sort-header="description" scope="col">Description</th>
-                <th mat-sort-header="userName" scope="col">User Name</th>
-                <th mat-sort-header="userSurname" scope="col">User Surname</th>
-                <th mat-sort-header="winVersion" scope="col">Windows Version</th>
-                <th mat-sort-header="lastUpdate" scope="col">Last Update</th>
-                <th mat-sort-header="domainMigration" scope="col">Domain Migration</th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let computer of computers | filter : 'computerName' : searchString; let i = index">
-                    <td>
-                        <button mat-stroked-button class="btn btn-primary" (click)="openEdit('EDIT', computer)">Edit</button>
-                        <button mat-stroked-button color="warn" class="btn btn-danger" (click)="delete(computer)">Delete</button>
-                    </td>
-                    <td>{{ computer.id}}</td>
-                    <td>{{ computer.computerName}}</td>
-                    <td> {{ computer.description }}</td>
-                    <td> {{ computer.userName }}</td>
-                    <td> {{ computer.userSurname }}</td>
-                    <td> {{ computer.winVersion }}</td>
-                    <td> {{ computer.lastUpdate | date: 'dd/MM/yyyy'}}</td>
-                    <td> {{ computer.domainMigration?'Yes':'No' }}</td>
-                </tr>
-            </tbody>
-        </table> -->
         <button mat-stroked-button (click)="openEdit('NEW')">Add Computer</button>
     </div>
 </div>
