@@ -13,7 +13,7 @@ employer.
 
 ### CTServer
 
-Backend is implements a REST Server with Java Spring Boot.
+Backend implements a REST Server with Java Spring Boot.
 
 ### CTClient
 
